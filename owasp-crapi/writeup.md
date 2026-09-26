@@ -46,8 +46,12 @@ Con el token válido se confirma el acceso legítimo al dashboard (`GET /identit
 
 A partir de aquí se abusa de varios fallos de diseño de la API (más que "escalada de privilegios" clásica, son fallos de autorización y de lógica de negocio típicos de la OWASP API Security Top 10):
 
-**1. Fuerza bruta de OTP por falta de rate-limiting (Broken Authentication)**
-En el flujo de "Forgot Password" se solicita un OTP y se prueba manualmente un valor inventado (`1234`), que la API rechaza con un `500 Internal Server Error` y el mensaje "Invalid OTP! Please try again..". Al no haber ninguna limitación de intentos, se lanza `ffuf` contra `check-otp` con una wordlist de 4 dígitos (0000-9999). El primer intento contra `v3/check-otp` (probando también `otp:"0000"` manualmente contra `v3` y `v2`) no da resultados útiles, pero repitiendo el fuzzing contra `v2/check-otp` (matcher `-mc 200`) se localiza el código correcto en segundos. MailHog confirma el OTP real enviado por correo (`1249`), que efectivamente devuelve `200 OTP verified`, permitiendo resetear la contraseña de cualquier cuenta conociendo solo el email.
+**1. Fuerza bruta de OTP — endpoint legacy sin rate-limiting (Broken Authentication / API versioning)**
+En el flujo de "Forgot Password" se solicita un OTP y se prueba manualmente un valor inventado (`1234`), que la API rechaza con un `500 Internal Server Error` y el mensaje "Invalid OTP! Please try again..". Se lanza `ffuf` contra `v3/check-otp` con una wordlist de 4 dígitos (0000-9999), pero tras un número limitado de peticiones el endpoint deja de responder correctamente: `v3` sí implementa algún tipo de rate-limiting/bloqueo, que corta el fuzzing y evita seguir probando valores.
+
+Sin embargo, la propia API sigue exponiendo una versión anterior del mismo endpoint (`v2/check-otp`) que, al parecer, nunca recibió el mismo parche de protección. Repitiendo exactamente el mismo ataque contra `v2/check-otp` (matcher `-mc 200`) el fuzzing corre sin ningún bloqueo y se localiza el código correcto en segundos. MailHog confirma el OTP real enviado por correo (`1249`), que efectivamente devuelve `200 OTP verified` contra la `v2`, permitiendo resetear la contraseña de cualquier cuenta conociendo solo el email.
+
+Esto es un fallo clásico de gestión de versiones de API: se parchea la vulnerabilidad en la versión "actual" del endpoint, pero se olvida retirar o parchear igualmente la versión anterior, que sigue activa y accesible sin ningún control adicional.
 
 **2. Mass Assignment / Business Logic Flaw — precios negativos**
 Se hace fuzzing de métodos HTTP contra `/workshop/api/shop/products` (`ffuf -X FUZZ`), confirmando que `POST` está permitido (401 sin auth, pero no bloqueado a nivel de método). Con el token válido, un `POST` sin campos revela los campos requeridos (`name`, `price`, `image_url`) vía el mensaje de error 400. Enviando un producto con `price: -10000` la API lo acepta sin validar que el precio sea positivo, devolviendo `200 OK` y creando el producto "Hacked" con `id: 3`.
@@ -66,6 +70,7 @@ Navegando por los posts de la comunidad se descubre que la respuesta de cada pos
 
 ### Desde el punto de vista del atacante
 - Los endpoints de autenticación secundarios (recuperación de contraseña, verificación de OTP) suelen tener menos controles que el login principal, y son un objetivo prioritario para fuerza bruta si el OTP es corto y no hay rate-limiting.
+- Cuando un endpoint versionado (`v3`) bloquea el ataque, merece la pena probar las versiones anteriores (`v2`, `v1`) del mismo endpoint: es muy común que un parche de seguridad se aplique solo a la versión "actual" y se olvide la versión legacy, que sigue expuesta y sin protección.
 - Los IDs referenciados en un recurso (posts, comentarios, perfiles públicos) casi siempre filtran identificadores de otros recursos (`vehicleId`, `userId`) reutilizables contra otros endpoints — conviene mapear todos los IDs que aparecen en cualquier respuesta, no solo los de la petición actual.
 - Los campos numéricos de negocio (precios, cantidades, importes) rara vez se validan por rango en aplicaciones de prueba/demo: probar siempre valores negativos, cero y extremos.
 - Operadores de bases de datos NoSQL (`$ne`, `$gt`, `$regex`, etc.) inyectados en campos JSON son un vector de bypass de validación muy efectivo cuando la API no sanea la entrada antes de construir la query.
