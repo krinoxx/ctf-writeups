@@ -28,7 +28,7 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | Trust | DockerLabs | 🟢 Muy fácil | Gobuster · Fuerza bruta SSH · sudo misconfiguration · GTFOBins (vim) | [writeup](./dockerlabs/muy-facil/trust/writeup.md) |
 | crAPI | OWASP crAPI | - | OTP brute force · Mass Assignment · Business Logic Flaw · NoSQL Injection · BOLA/IDOR | [writeup](./owasp-crapi/writeup.md) |
 | File Upload Abuse | file_upload_vulnerability_scenarios | - | Blacklist de extensión (.php5/.pht) · Bypass Content-Type · MAX_FILE_SIZE · Magic bytes (GIF/JPEG) · Subida de .htaccess · Doble extensión · Gobuster | [writeup](./file-upload-abuse/writeup.md) |
-| Prototype Pollution | Laboratorio de práctica web | - | Prototype Pollution · Burp Suite · Node.js `_.merge` inseguro | [writeup](./prototype-pollution/writeup.md) |
+| Prototype Pollution | skf-labs | - | Prototype Pollution · Burp Suite · Node.js `_.merge` inseguro | [writeup](./prototype-pollution/writeup.md) |
 
 ---
  
