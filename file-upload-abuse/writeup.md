@@ -14,7 +14,7 @@
   - [Escenario 17 — MAX_FILE_SIZE + short-tag](#escenario-17--max_file_size--short-tag)
   - [Escenario 21 — Bypass de Content-Type](#escenario-21--bypass-de-content-type)
   - [Escenario 23 — Magic bytes GIF](#escenario-23--magic-bytes-gif)
-  - [Escenarios 31/33/35/41 — Subida ciega + descubrimiento](#escenarios-3133354 1--subida-ciega--descubrimiento)
+  - [Escenarios 31/33/35/41 — Subida ciega + descubrimiento](#escenarios-31333541--subida-ciega--descubrimiento)
   - [Escenario 51 — Doble extensión + magic bytes JPEG](#escenario-51--doble-extensión--magic-bytes-jpeg)
   - [Escenario 56 — Directorio controlado por parámetro](#escenario-56--directorio-controlado-por-parámetro)
   - [Escenario 58 — .htaccess + directorio controlado](#escenario-58--htaccess--directorio-controlado)
