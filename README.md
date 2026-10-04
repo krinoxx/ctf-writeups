@@ -31,7 +31,7 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | Prototype Pollution | Skf-labs | 🟢 Fácil | Prototype Pollution · Burp Suite · Node.js `_.merge` inseguro | [writeup](./prototype-pollution/writeup.md) |
 | DNS Zone Transfer | Vulhub | 🟢 Muy fácil | Transferencia de zona DNS (AXFR) · dig · Enumeración DNS · BIND sin allow-transfer | [writeup](./transferencia-zona-dns/writeup.md) |
 | Mass Assignment | OWASP Juice Shop | 🟢 Fácil | Mass Assignment · Burp Repeater · API abuse (campo `role` no filtrado) | [writeup](./mass-assignment-juice-shop/writeup.md) |
-| Open Redirect | Skf-labs | 🟡 Media (progresiva) | Open Redirect (CWE-601) · Bypass de filtros "." y "/" · WHATWG URL parsing · Burp Repeater | [writeup](./open-redirect-skf-labs/writeup.md) |
+| Open Redirect | Skf-labs | 🟡 Media | Open Redirect (CWE-601) · Bypass de filtros "." y "/" · WHATWG URL parsing · Burp Repeater | [writeup](./open-redirect-skf-labs/writeup.md) |
 
 ---
  
