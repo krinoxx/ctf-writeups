@@ -14,8 +14,8 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | DockerLabs | 3 |
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
-| Otras | 4 |
-| **Total** | **7** |
+| Otras | 5 |
+| **Total** | **8** |
 
 ---
 
@@ -30,6 +30,7 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | File Upload Abuse | file_upload_vulnerability_scenarios | 🟡 Medio | Blacklist de extensión (.php5/.pht) · Bypass Content-Type · MAX_FILE_SIZE · Magic bytes (GIF/JPEG) · Subida de .htaccess · Doble extensión · Gobuster | [writeup](./file-upload-abuse/writeup.md) |
 | Prototype Pollution | skf-labs | 🟢 Fácil | Prototype Pollution · Burp Suite · Node.js `_.merge` inseguro | [writeup](./prototype-pollution/writeup.md) |
 | DNS Zone Transfer | Vulhub | 🟢 Muy fácil | Transferencia de zona DNS (AXFR) · dig · Enumeración DNS · BIND sin allow-transfer | [writeup](./transferencia-zona-dns/writeup.md) |
+| Mass Assignment | OWASP Juice Shop | 🟢 Fácil | Mass Assignment · Burp Repeater · API abuse (campo `role` no filtrado) | [writeup](./mass-assignment-juice-shop/writeup.md) |
 
 ---
  
