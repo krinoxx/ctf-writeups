@@ -28,7 +28,7 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | Trust | DockerLabs | 🟢 Muy fácil | Gobuster · Fuerza bruta SSH · sudo misconfiguration · GTFOBins (vim) | [writeup](./dockerlabs/muy-facil/trust/writeup.md) |
 | crAPI | OWASP crAPI | 🟡 Medio | OTP brute force · Mass Assignment · Business Logic Flaw · NoSQL Injection · BOLA/IDOR | [writeup](./owasp-crapi/writeup.md) |
 | File Upload Abuse | File Upload Vulnerability Scenarios | 🟡 Medio | Blacklist de extensión (.php5/.pht) · Bypass Content-Type · MAX_FILE_SIZE · Magic bytes (GIF/JPEG) · Subida de .htaccess · Doble extensión · Gobuster | [writeup](./file-upload-abuse/writeup.md) |
-| Prototype Pollution | skf-labs | 🟢 Fácil | Prototype Pollution · Burp Suite · Node.js `_.merge` inseguro | [writeup](./prototype-pollution/writeup.md) |
+| Prototype Pollution | Skf-labs | 🟢 Fácil | Prototype Pollution · Burp Suite · Node.js `_.merge` inseguro | [writeup](./prototype-pollution/writeup.md) |
 | DNS Zone Transfer | Vulhub | 🟢 Muy fácil | Transferencia de zona DNS (AXFR) · dig · Enumeración DNS · BIND sin allow-transfer | [writeup](./transferencia-zona-dns/writeup.md) |
 | Mass Assignment | OWASP Juice Shop | 🟢 Fácil | Mass Assignment · Burp Repeater · API abuse (campo `role` no filtrado) | [writeup](./mass-assignment-juice-shop/writeup.md) |
 
