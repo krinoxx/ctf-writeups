@@ -1,5 +1,5 @@
 # Prototype Pollution — skf-labs
-**Dificultad:** Media | **SO:** Linux | **Fecha:** 03/10/2026 | **Autor:** krinoxx | **Plataforma:** [skf-labs (blabla1337)](https://github.com/blabla1337/skf-labs)
+**Dificultad:** Fácil | **SO:** Linux | **Fecha:** 03/10/2026 | **Autor:** krinoxx | **Plataforma:** [skf-labs (blabla1337)](https://github.com/blabla1337/skf-labs)
 
 ## Índice
 - [Reconocimiento](#reconocimiento)
