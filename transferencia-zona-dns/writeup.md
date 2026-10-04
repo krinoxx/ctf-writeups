@@ -1,5 +1,5 @@
 # DNS Zone Transfer — Laboratorio local en Docker
-**Dificultad:** Muy fácil | **SO:** Linux (contenedor Docker, BIND) | **Fecha:** 2026-10-03 | **Autor:** krinoxx | **Plataforma:** Laboratorio local de DNS en Docker (entorno controlado)
+**Dificultad:** Muy fácil | **SO:** Linux (contenedor Docker, BIND) | **Fecha:** 2026-10-03 | **Autor:** krinoxx | **Plataforma:** Vulhub
 
 ## Índice
 - [Reconocimiento](#reconocimiento)
