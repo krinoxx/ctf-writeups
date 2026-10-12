@@ -1,26 +1,27 @@
 # CTF Writeups ⚔️
- 
+
 Writeups de las máquinas que voy resolviendo en distintas plataformas de hacking ético.
- 
+
 Cada writeup documenta el proceso completo: reconocimiento, enumeración, explotación, escalada de privilegios y lecciones aprendidas.  
 El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
- 
+
 ---
- 
+
 ## 📊 Progreso
- 
+
 | Plataforma | Resueltas |
 |------------|-----------|
 | DockerLabs | 3 |
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
+| VulnHub | 1 |
 | Otras | 7 |
-| **Total** | **10** |
- 
+| **Total** | **11** |
+
 ---
- 
+
 ## 📁 Índice de máquinas
- 
+
 | Máquina | Plataforma | Dificultad | Técnicas | Writeup |
 |---------|------------|------------|----------|---------|
 | Firsthacking | DockerLabs | 🟢 Muy fácil | FTP · CVE-2011-2523 · Backdoor vsftpd 2.3.4 · netcat | [writeup](./dockerlabs/muy-facil/firsthacking/writeup.md) |
@@ -33,7 +34,8 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | Mass Assignment | OWASP Juice Shop | 🟢 Fácil | Mass Assignment · Burp Repeater · API abuse (campo `role` no filtrado) | [writeup](./mass-assignment-juice-shop/writeup.md) |
 | Open Redirect | Skf-labs | 🟡 Media | Open Redirect (CWE-601) · Bypass de filtros "." y "/" · WHATWG URL parsing · Burp Repeater | [writeup](./open-redirect-skf-labs/writeup.md) |
 | WebDAV Auth Bypass | bytemark/webdav (BytemarkHosting) | 🟢 Fácil | WebDAV · Digest Auth · Fuerza bruta (davtest + rockyou) · cadaver · Escritura arbitraria de ficheros | [writeup](./webdav-enum-explotacion/writeup.md) |
- 
+| SickOs 1.1 | VulnHub | 🟡 Media | Pivoting vía Squid Proxy · Gobuster · Descubrimiento de puertos internos vía proxy · ShellShock (CVE-2014-6271) · Reverse shell | [writeup](./vulnhub/sickos-1.1/writeup.md) |
+
 ---
  
 ## 📝 Estructura de writeups
