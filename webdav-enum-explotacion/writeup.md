@@ -9,7 +9,6 @@
 - [Lecciones aprendidas](#lecciones-aprendidas)
   - [Desde el punto de vista del atacante](#desde-el-punto-de-vista-del-atacante)
   - [Desde el punto de vista del defensor](#desde-el-punto-de-vista-del-defensor)
-- [Capturas](#capturas)
 
 ## Reconocimiento
 
@@ -22,11 +21,13 @@ whatweb http://127.0.0.1
 http://127.0.0.1 [401 Unauthorized] Apache[2.4.37], HTTPServer[Unix][Apache/2.4.37 (Unix)], Title[401 Unauthorized], WWW-Authenticate[WebDAV][Digest]
 ```
 
-➡️ Ver captura 01.
+#### 01 — Respuesta 401 con cabecera WebDAV Digest
+![01](capturas/01.png)
 
 Al acceder desde el navegador se confirma el mismo comportamiento: un diálogo de autenticación HTTP exigiendo usuario y contraseña antes de mostrar cualquier contenido.
 
-➡️ Ver captura 02.
+#### 02 — Diálogo de autenticación HTTP en el navegador
+![02](capturas/02.png)
 
 ## Enumeración web
 
@@ -37,7 +38,8 @@ davtest -url http://127.0.0.1 -auth admin:admin
 OPEN FAIL: http://127.0.0.1 Unauthorized. Digest realm="WebDAV", nonce="...", algorithm=MD5, qop="auth"
 ```
 
-➡️ Ver captura 03.
+#### 03 — Intento fallido de conexión DAV con credenciales triviales
+![03](capturas/03.png)
 
 Al no haber credenciales válidas conocidas, el siguiente paso lógico era intentar un ataque de fuerza bruta sobre la contraseña del usuario `admin` (nombre de usuario deducido/asumido como habitual en este tipo de despliegues), dado que el servidor soporta autenticación Digest sobre HTTP.
 
@@ -57,7 +59,8 @@ done
 
 Resultado: **admin:richard**.
 
-➡️ Ver captura 04.
+#### 04 — Fuerza bruta exitosa: contraseña encontrada
+![04](capturas/04.png)
 
 Con las credenciales válidas se estableció una sesión interactiva WebDAV mediante `cadaver`:
 
@@ -68,11 +71,13 @@ Password: ********
 dav:/>
 ```
 
-➡️ Ver captura 05.
+#### 05 — Sesión WebDAV establecida con `cadaver`
+![05](capturas/05.png)
 
 Un simple `ls` dentro de la sesión confirmó acceso de lectura a la colección raíz, mostrando varios directorios de prueba ya existentes (señal de que el servidor permite tanto lectura como escritura a cualquier cliente autenticado):
 
-➡️ Ver captura 06.
+#### 06 — Listado de la colección raíz (acceso de lectura confirmado)
+![06](capturas/06.png)
 
 Para demostrar capacidad de escritura arbitraria en el servidor, se creó un directorio propio (`probando`) dentro de la colección WebDAV:
 
@@ -82,11 +87,13 @@ dav:/> cd probando
 dav:/probando/>
 ```
 
-➡️ Ver captura 07.
+#### 07 — Creación de directorio propio en el servidor
+![07](capturas/07.png)
 
 Se generó localmente un fichero de texto (`webdav_Pwned.txt`) a modo de prueba de concepto:
 
-➡️ Ver captura 08.
+#### 08 — Fichero de prueba preparado localmente
+![08](capturas/08.png)
 
 Y se subió al servidor comprometido usando el comando `put` de `cadaver`:
 
@@ -96,15 +103,18 @@ Uploading webdav_Pwned.txt to `/probando/webdav_Pwned.txt':
 Progress: [=====>] 100.0% of 33 bytes succeeded.
 ```
 
-➡️ Ver captura 09.
+#### 09 — Subida del fichero mediante `put`
+![09](capturas/09.png)
 
 Finalmente, se verificó desde el navegador que el fichero subido es servido públicamente por Apache, confirmando la escritura arbitraria sobre el servidor web:
 
-➡️ Ver captura 10.
+#### 10 — Verificación en el navegador: fichero servido públicamente
+![10](capturas/10.png)
 
 Adicionalmente, el listado de directorio (`Index of /probando`) confirma que Apache sirve el contenido de la colección WebDAV directamente como parte del document root.
 
-➡️ Ver captura 11.
+#### 11 — Listado de directorio servido por Apache
+![11](capturas/11.png)
 
 ## Escalada de privilegios
 
@@ -122,40 +132,5 @@ No fue necesaria una fase de escalada de privilegios independiente: el objetivo 
 - Separar el directorio de almacenamiento WebDAV del document root servido por el motor web, o deshabilitar la ejecución de scripts en esa ruta, para que una subida de fichero no derive en ejecución de código.
 - Monitorizar intentos repetidos de autenticación fallida (fuerza bruta) sobre el endpoint WebDAV y aplicar *rate limiting* / bloqueo de IP tras varios intentos.
 - Revisar periódicamente los métodos HTTP habilitados (`PUT`, `DELETE`, `MKCOL`, etc.) y restringirlos solo a los estrictamente necesarios.
-
-## Capturas
-
-### 01 — Reconocimiento: respuesta 401 con cabecera WebDAV Digest
-![01](capturas/01.png)
-
-### 02 — Diálogo de autenticación HTTP en el navegador
-![02](capturas/02.png)
-
-### 03 — Intento fallido de conexión DAV con credenciales triviales
-![03](capturas/03.png)
-
-### 04 — Fuerza bruta exitosa: contraseña encontrada
-![04](capturas/04.png)
-
-### 05 — Sesión WebDAV establecida con `cadaver`
-![05](capturas/05.png)
-
-### 06 — Listado de la colección raíz (acceso de lectura confirmado)
-![06](capturas/06.png)
-
-### 07 — Creación de directorio propio en el servidor
-![07](capturas/07.png)
-
-### 08 — Fichero de prueba preparado localmente
-![08](capturas/08.png)
-
-### 09 — Subida del fichero mediante `put`
-![09](capturas/09.png)
-
-### 10 — Verificación en el navegador: fichero servido públicamente
-![10](capturas/10.png)
-
-### 11 — Listado de directorio servido por Apache
-![11](capturas/11.png)
 
 *Writeup educativo en entorno controlado.*
