@@ -186,7 +186,7 @@ El listener recibe la conexión entrante desde `192.168.1.56` y obtengo una shel
 
 ## Escalada de privilegios
 
-*Pendiente — no se incluyen capturas de esta fase en esta entrega del writeup.*
+*No ha sido necesaria una fase de escalada de privilegios independiente: la shell obtenida mediante la explotación de ShellShock en /cgi-bin/status ya proporciona acceso suficiente para completar el objetivo de la máquina, sin requerir un salto adicional de usuario o de privilegios.*
 
 ## Lecciones aprendidas
 
