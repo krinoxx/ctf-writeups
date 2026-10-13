@@ -14,9 +14,9 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | DockerLabs | 3 |
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
-| VulnHub | 1 |
+| VulnHub | 2 |
 | Otras | 7 |
-| **Total** | **11** |
+| **Total** | **12** |
 
 ---
 
@@ -35,6 +35,7 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | Open Redirect | Skf-labs | 🟡 Media | Open Redirect (CWE-601) · Bypass de filtros "." y "/" · WHATWG URL parsing · Burp Repeater | [writeup](./open-redirect-skf-labs/writeup.md) |
 | WebDAV Auth Bypass | bytemark/webdav (BytemarkHosting) | 🟢 Fácil | WebDAV · Digest Auth · Fuerza bruta (davtest + rockyou) · cadaver · Escritura arbitraria de ficheros | [writeup](./webdav-enum-explotacion/writeup.md) |
 | SickOs 1.1 | VulnHub | 🟡 Media | Pivoting vía Squid Proxy · Gobuster · Descubrimiento de puertos internos vía proxy · ShellShock (CVE-2014-6271) · Reverse shell | [writeup](./vulnhub/sickos-1.1/writeup.md) |
+| XVWA — XPATH Injection | VulnHub | 🟢 Fácil | XPath Injection · Burp Suite · Extracción ciega de datos (blind) · Automatización en Python (requests) | [writeup](./vulnhub/xvwa-xpath-injection/writeup.md) |
 
 ---
  
