@@ -150,24 +150,29 @@ Repetir manualmente este proceso para los 10 elementos `Coffee` sería extremada
 
 #### 33. `GetValueOfSubSubTag()`
 Esta función extrae el valor final de cada campo hoja, usando un juego de caracteres ampliado (`Allcharacters`: letras, mayúsculas, dígitos y puntuación) para cubrir textos descriptivos y precios.
+
 ![33 - GetValueOfSubSubTag](capturas/33_script_getvalueofsubsubtag.png)
 
 #### 34. `selectTag()` y bloque principal
 El bloque `__main__` encadena todas las funciones anteriores, pide al usuario qué etiqueta primaria quiere volcar, y al final reconstruye el árbol XML completo con `ElementTree`, escribiéndolo en `pwned.xml` y formateándolo con `xmllint`.
+
 ![34 - selectTag + main](capturas/34_script_selecttag_main.png)
 
 ### Ejecución del script
 
 #### 35. Primera parte de la ejecución
 El script detecta automáticamente 1 etiqueta primaria (`Coffees`), 10 subetiquetas (`Coffee`), y dentro del primer `Coffee` sus etiquetas terciarias (`ID`, `Name`...).
+
 ![35 - Ejecución parte 1](capturas/35_ejecucion_script_parte1.png)
 
 #### 36. Extracción de Name y Desc en curso
 Fuerza bruta carácter a carácter de los campos `Name` ("Affogato") y `Desc` (la descripción larga del café).
+
 ![36 - Ejecución parte 2](capturas/36_ejecucion_script_parte2.png)
 
 #### 37. Extracción de Price, Secret y comienzo del segundo Coffee
 Se obtienen `Price` ("$4.69") y el campo oculto `Secret`, confirmando que efectivamente contenía un dato adicional no visible en la interfaz normal de la aplicación.
+
 ![37 - Ejecución parte 3](capturas/37_ejecucion_script_parte3.png)
 
 ### Verificación de los datos extraídos
@@ -185,6 +190,7 @@ Al tratarse de un laboratorio propio, se tuvo acceso a la consola de la VM para 
 
 #### 41. Vista completa confirmando el campo `Secret`
 Se confirma que el campo `Secret` extraído mediante la inyección coincide con el valor real almacenado en el XML del servidor, al que un usuario normal de la aplicación nunca tendría acceso por la interfaz.
+
 ![41 - vista completa XML](capturas/41_verificacion_xml_completo.png)
 
 ---
