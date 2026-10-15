@@ -1,27 +1,27 @@
 # CTF Writeups ⚔️
-
+ 
 Writeups de las máquinas que voy resolviendo en distintas plataformas de hacking ético.
-
+ 
 Cada writeup documenta el proceso completo: reconocimiento, enumeración, explotación, escalada de privilegios y lecciones aprendidas.  
 El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
-
+ 
 ---
-
+ 
 ## 📊 Progreso
-
+ 
 | Plataforma | Resueltas |
 |------------|-----------|
 | DockerLabs | 3 |
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
 | VulnHub | 2 |
-| Otras | 7 |
-| **Total** | **12** |
-
+| Otras | 8 |
+| **Total** | **13** |
+ 
 ---
-
+ 
 ## 📁 Índice de máquinas
-
+ 
 | Máquina | Plataforma | Dificultad | Técnicas | Writeup |
 |---------|------------|------------|----------|---------|
 | Firsthacking | DockerLabs | 🟢 Muy fácil | FTP · CVE-2011-2523 · Backdoor vsftpd 2.3.4 · netcat | [writeup](./dockerlabs/muy-facil/firsthacking/writeup.md) |
@@ -36,7 +36,8 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | WebDAV Auth Bypass | bytemark/webdav (BytemarkHosting) | 🟢 Fácil | WebDAV · Digest Auth · Fuerza bruta (davtest + rockyou) · cadaver · Escritura arbitraria de ficheros | [writeup](./webdav-enum-explotacion/writeup.md) |
 | SickOs 1.1 | VulnHub | 🟡 Media | Pivoting vía Squid Proxy · Gobuster · Descubrimiento de puertos internos vía proxy · ShellShock (CVE-2014-6271) · Reverse shell | [writeup](./vulnhub/sickos-1.1/writeup.md) |
 | XVWA — XPATH Injection | VulnHub | 🟢 Fácil | XPath Injection · Burp Suite · Extracción ciega de datos (blind) · Automatización en Python (requests) | [writeup](./vulnhub/xvwa-xpath-injection/writeup.md) |
-
+| CORS Hijacking | Skf-labs | 🟢 Fácil | CORS misconfiguration · Access-Control-Allow-Origin: * + Credentials: true · Burp Repeater · Exfiltración vía XHR withCredentials | [writeup](./cors-hijacking/writeup.md) |
+ 
 ---
  
 ## 📝 Estructura de writeups
