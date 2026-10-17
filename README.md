@@ -1,3 +1,5 @@
+
+Readme · MD
 # CTF Writeups ⚔️
  
 Writeups de las máquinas que voy resolviendo en distintas plataformas de hacking ético.
@@ -15,8 +17,8 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
 | VulnHub | 3 |
-| Otras | 8 |
-| **Total** | **14** |
+| Otras | 9 |
+| **Total** | **15** |
  
 ---
  
@@ -38,6 +40,7 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | XVWA — XPATH Injection | VulnHub | 🟢 Fácil | XPath Injection · Burp Suite · Extracción ciega de datos (blind) · Automatización en Python (requests) | [writeup](./vulnhub/xvwa-xpath-injection/writeup.md) |
 | CORS Hijacking | Skf-labs | 🟢 Fácil | CORS misconfiguration · Access-Control-Allow-Origin: * + Credentials: true · Burp Repeater · Exfiltración vía XHR withCredentials | [writeup](./cors-hijacking/writeup.md) |
 | IA: Tornado | VulnHub | 🟡 Media | Gobuster · Info disclosure (listado de directorio Apache + comentario HTML) · SQL Truncation Attack · OS Command Injection · Reverse shell | [writeup](./vulnhub/tornado/writeup.md) |
+| Session Puzzling | Skf-labs | 🟡 Media | Session Puzzling · JWT (decodificación de claims) · Burp Suite · Reutilización de cookie de sesión entre flujos (forgot-password → dashboard) | [writeup](./session-puzzling-skf-labs/writeup.md) |
  
 ---
  
