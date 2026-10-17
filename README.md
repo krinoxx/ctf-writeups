@@ -14,9 +14,9 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | DockerLabs | 3 |
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
-| VulnHub | 2 |
+| VulnHub | 3 |
 | Otras | 8 |
-| **Total** | **13** |
+| **Total** | **14** |
  
 ---
  
@@ -37,6 +37,7 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | SickOs 1.1 | VulnHub | 🟡 Media | Pivoting vía Squid Proxy · Gobuster · Descubrimiento de puertos internos vía proxy · ShellShock (CVE-2014-6271) · Reverse shell | [writeup](./vulnhub/sickos-1.1/writeup.md) |
 | XVWA — XPATH Injection | VulnHub | 🟢 Fácil | XPath Injection · Burp Suite · Extracción ciega de datos (blind) · Automatización en Python (requests) | [writeup](./vulnhub/xvwa-xpath-injection/writeup.md) |
 | CORS Hijacking | Skf-labs | 🟢 Fácil | CORS misconfiguration · Access-Control-Allow-Origin: * + Credentials: true · Burp Repeater · Exfiltración vía XHR withCredentials | [writeup](./cors-hijacking/writeup.md) |
+| IA: Tornado | VulnHub | 🟡 Media | Gobuster · Info disclosure (listado de directorio Apache + comentario HTML) · SQL Truncation Attack · OS Command Injection · Reverse shell | [writeup](./vulnhub/tornado/writeup.md) |
  
 ---
  
