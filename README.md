@@ -1,27 +1,27 @@
 # CTF Writeups ⚔️
- 
+
 Writeups de las máquinas que voy resolviendo en distintas plataformas de hacking ético.
- 
+
 Cada writeup documenta el proceso completo: reconocimiento, enumeración, explotación, escalada de privilegios y lecciones aprendidas.  
 El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
- 
+
 ---
- 
+
 ## 📊 Progreso
- 
+
 | Plataforma | Resueltas |
 |------------|-----------|
 | DockerLabs | 3 |
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
 | VulnHub | 3 |
-| Otras | 12 |
-| **Total** | **18** |
- 
+| Otras | 13 |
+| **Total** | **19** |
+
 ---
- 
+
 ## 📁 Índice de máquinas
- 
+
 | Máquina | Plataforma | Dificultad | Técnicas | Writeup |
 |---------|------------|------------|----------|---------|
 | Firsthacking | DockerLabs | 🟢 Muy fácil | FTP · CVE-2011-2523 · Backdoor vsftpd 2.3.4 · netcat | [writeup](./dockerlabs/muy-facil/firsthacking/writeup.md) |
@@ -42,7 +42,8 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | JWT — SKF Labs | Skf-labs | 🟢 Fácil | JWT · alg NONE/NULL cipher bypass · Forja manual de token sin firma · Fuerza bruta de secreto débil HS256 · jwt.io | [writeup](./jwt-skf-labs/writeup.md) |
 | Race Condition | Skf-labs | 🟡 Media | TOCTOU race condition · OS Command Injection · Reverse shell · Condición de carrera en escritura/lectura de fichero compartido · Burp Repeater | [writeup](./race-condition-skf-labs/writeup.md) |
 | CSS Injection (CSSI) | Skf-labs | 🟢 Fácil | CSS Injection · Escape de bloque `<style>` (`}</style>`) · XSS reflejado · view-source | [writeup](./css-injection-skf-labs/writeup.md) |
- 
+| Deserialización YAML (RCE) | Skf-labs | 🟢 Fácil | Deserialización insegura de YAML (PyYAML `yaml.load()` sin SafeLoader) · Payload `!!python/object/apply:subprocess.check_output` · Decodificación de parámetro Base64 · RCE | [writeup](./yaml-deserialization-skf-labs/writeup.md) |
+
 ---
  
 ## 📝 Estructura de writeups
