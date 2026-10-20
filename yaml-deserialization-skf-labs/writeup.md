@@ -1,5 +1,5 @@
-# Deserialización YAML en Python (RCE) — Laboratorio web local
-**Dificultad:** Fácil | **SO:** Linux | **Fecha:** 20/10/2026 | **Autor:** krinoxx | **Plataforma:** Laboratorio de seguridad web (entorno Docker local)
+# Deserialización YAML en Python (RCE) — skf-labs
+**Dificultad:** Fácil | **SO:** Linux (Arch Linux, entorno local) | **Fecha:** 20/10/2026 | **Autor:** krinoxx | **Plataforma:** [skf-labs (blabla1337)](https://github.com/blabla1337/skf-labs)
 
 ## Índice
 - [Reconocimiento](#reconocimiento)
