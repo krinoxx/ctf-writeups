@@ -1,27 +1,27 @@
 # CTF Writeups ⚔️
-
+ 
 Writeups de las máquinas que voy resolviendo en distintas plataformas de hacking ético.
-
+ 
 Cada writeup documenta el proceso completo: reconocimiento, enumeración, explotación, escalada de privilegios y lecciones aprendidas.  
 El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
-
+ 
 ---
-
+ 
 ## 📊 Progreso
-
+ 
 | Plataforma | Resueltas |
 |------------|-----------|
 | DockerLabs | 3 |
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
 | VulnHub | 3 |
-| Otras | 13 |
-| **Total** | **19** |
-
+| Otras | 14 |
+| **Total** | **20** |
+ 
 ---
-
+ 
 ## 📁 Índice de máquinas
-
+ 
 | Máquina | Plataforma | Dificultad | Técnicas | Writeup |
 |---------|------------|------------|----------|---------|
 | Firsthacking | DockerLabs | 🟢 Muy fácil | FTP · CVE-2011-2523 · Backdoor vsftpd 2.3.4 · netcat | [writeup](./dockerlabs/muy-facil/firsthacking/writeup.md) |
@@ -43,7 +43,8 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | Race Condition | Skf-labs | 🟡 Media | TOCTOU race condition · OS Command Injection · Reverse shell · Condición de carrera en escritura/lectura de fichero compartido · Burp Repeater | [writeup](./race-condition-skf-labs/writeup.md) |
 | CSS Injection (CSSI) | Skf-labs | 🟢 Fácil | CSS Injection · Escape de bloque `<style>` (`}</style>`) · XSS reflejado · view-source | [writeup](./css-injection-skf-labs/writeup.md) |
 | Deserialización YAML (RCE) | Skf-labs | 🟢 Fácil | Deserialización insegura de YAML (PyYAML `yaml.load()` sin SafeLoader) · Payload `!!python/object/apply:subprocess.check_output` · Decodificación de parámetro Base64 · RCE | [writeup](./yaml-deserialization-skf-labs/writeup.md) |
-
+| Deserialización Pickle (RCE) | Skf-labs | 🟢 Fácil | Deserialización insegura de Pickle (`pickle.load()`) · Payload con `__reduce__` + `os.system` · Codificación hexadecimal · Reverse shell | [writeup](./des-pickle-skf-labs/writeup.md) |
+ 
 ---
  
 ## 📝 Estructura de writeups
