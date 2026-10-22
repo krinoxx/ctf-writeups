@@ -15,8 +15,8 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | The Hacker Labs | 0 |
 | HackTheBox | 0 |
 | VulnHub | 3 |
-| Otras | 14 |
-| **Total** | **20** |
+| Otras | 15 |
+| **Total** | **21** |
  
 ---
  
@@ -39,11 +39,12 @@ El objetivo no es solo llegar a root — es entender el *por qué* de cada paso.
 | CORS Hijacking | Skf-labs | 🟢 Fácil | CORS misconfiguration · Access-Control-Allow-Origin: * + Credentials: true · Burp Repeater · Exfiltración vía XHR withCredentials | [writeup](./cors-hijacking/writeup.md) |
 | IA: Tornado | VulnHub | 🟡 Media | Gobuster · Info disclosure (listado de directorio Apache + comentario HTML) · SQL Truncation Attack · OS Command Injection · Reverse shell | [writeup](./vulnhub/tornado/writeup.md) |
 | Session Puzzling | Skf-labs | 🟡 Media | Session Puzzling · JWT (decodificación de claims) · Burp Suite · Reutilización de cookie de sesión entre flujos (forgot-password → dashboard) | [writeup](./session-puzzling-skf-labs/writeup.md) |
-| JWT — SKF Labs | Skf-labs | 🟢 Fácil | JWT · alg NONE/NULL cipher bypass · Forja manual de token sin firma · Fuerza bruta de secreto débil HS256 · jwt.io | [writeup](./jwt-skf-labs/writeup.md) |
+| JWT | Skf-labs | 🟢 Fácil | JWT · alg NONE/NULL cipher bypass · Forja manual de token sin firma · Fuerza bruta de secreto débil HS256 · jwt.io | [writeup](./jwt-skf-labs/writeup.md) |
 | Race Condition | Skf-labs | 🟡 Media | TOCTOU race condition · OS Command Injection · Reverse shell · Condición de carrera en escritura/lectura de fichero compartido · Burp Repeater | [writeup](./race-condition-skf-labs/writeup.md) |
 | CSS Injection (CSSI) | Skf-labs | 🟢 Fácil | CSS Injection · Escape de bloque `<style>` (`}</style>`) · XSS reflejado · view-source | [writeup](./css-injection-skf-labs/writeup.md) |
 | Deserialización YAML (RCE) | Skf-labs | 🟢 Fácil | Deserialización insegura de YAML (PyYAML `yaml.load()` sin SafeLoader) · Payload `!!python/object/apply:subprocess.check_output` · Decodificación de parámetro Base64 · RCE | [writeup](./yaml-deserialization-skf-labs/writeup.md) |
 | Deserialización Pickle (RCE) | Skf-labs | 🟢 Fácil | Deserialización insegura de Pickle (`pickle.load()`) · Payload con `__reduce__` + `os.system` · Codificación hexadecimal · Reverse shell | [writeup](./des-pickle-skf-labs/writeup.md) |
+| GraphQL — IDOR, Introspection & Mutations | Skf-labs | 🟡 Media | GraphQL IDOR · Introspección de schema (`__schema`) · GraphQL Voyager · Abuso de mutación (`author_id` no validado) · Burp Suite · gobuster | [writeup](./graphql-skf-labs/writeup.md) |
  
 ---
  
